@@ -11,7 +11,8 @@ package arvoredigital;
  */
 public class Tries {
 
-    public NoTrie inserirChave(String palavra, int pos, NoTrie noAtual) {
+    public NoTrie inserirChave(String palavra, int pos, NoTrie noAtual, String s) {
+        s = "$";
 
         if (noAtual.filho == null) {
             NoTrie novo = new NoTrie();
@@ -20,7 +21,7 @@ public class Tries {
             novo.fim = pos;
             noAtual.filho = novo;
             if (palavra.length() - 1 > pos) {
-                noAtual.filho = inserirChave(palavra, pos + 1, novo);
+                noAtual.filho = inserirChave(palavra, pos + 1, novo,"");
             }
         } else {
             NoTrie aux;
@@ -35,11 +36,11 @@ public class Tries {
                 NoTrie novo = new NoTrie();
                 novo.chave += palavra.charAt(pos);
                 novo.ini = pos;
-                novo.fim = pos;
+                novo.fim = pos ;
                 ant.irmao = novo;
-                ant.irmao = inserirChave(palavra, pos  + 1, ant.irmao);
+                ant.irmao = inserirChave(palavra, pos  + 1, ant.irmao,s);
             } else {
-                aux = inserirChave(palavra, pos + 1, aux);
+                aux = inserirChave(palavra, pos + 1, aux,s);
             }
         }
         return noAtual;

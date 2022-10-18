@@ -20,9 +20,9 @@ public class ArvoreDigital {
         NoTrie raiz =  new NoTrie();
         Tries tries = new Tries();
         
-        raiz = tries.inserirChave("casa",0 , raiz);
-        raiz = tries.inserirChave("aluno", 0, raiz);
-        raiz = tries.inserirChave("camisa", 0, raiz);
+        raiz = tries.inserirChave("casa",0 , raiz,"$");
+        raiz = tries.inserirChave("aluno", 0, raiz,"$");
+        raiz = tries.inserirChave("camisa", 0, raiz,"$");
   
         tries.imprimir(raiz);
         //BuscaDigital bd = new BuscaDigital();
