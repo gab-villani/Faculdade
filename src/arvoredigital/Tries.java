@@ -5,14 +5,17 @@
  */
 package arvoredigital;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  *
  * @author Jeandro
  */
 public class Tries {
 
-    public NoTrie inserirChave(String palavra, int pos, NoTrie noAtual, String s) {
-        s = "$";
+    public NoTrie inserirChave(String palavra, int pos, NoTrie noAtual ){
+   
 
         if (noAtual.filho == null) {
             NoTrie novo = new NoTrie();
@@ -21,8 +24,18 @@ public class Tries {
             novo.fim = pos;
             noAtual.filho = novo;
             if (palavra.length() - 1 > pos) {
-                noAtual.filho = inserirChave(palavra, pos + 1, novo,"");
+                noAtual.filho = inserirChave(palavra, pos + 1, novo);
+                
+            }else{
+               
+                novo.chave += " $";
+                novo.ini = pos;
+                novo. fim = pos;
+                
+
+            
             }
+            
         } else {
             NoTrie aux;
             NoTrie ant = null;
@@ -38,9 +51,9 @@ public class Tries {
                 novo.ini = pos;
                 novo.fim = pos ;
                 ant.irmao = novo;
-                ant.irmao = inserirChave(palavra, pos  + 1, ant.irmao,s);
+                ant.irmao = inserirChave(palavra, pos  + 1, ant.irmao);
             } else {
-                aux = inserirChave(palavra, pos + 1, aux,s);
+                aux = inserirChave(palavra, pos + 1, aux);
             }
         }
         return noAtual;
@@ -64,5 +77,23 @@ public class Tries {
         }
         return no;
     }
+    public void lerlist(String[] args){
+         List list = new ArrayList();
+        for(int i=0 ;i<list.size() ;i++){
+            System.out.println("dicionario" + list);
+        
+    }}
+    public void inserilista(NoTrie no){
+        
+        List list = new ArrayList();
+        for(int i=0 ;i<list.size() ;i++){
+            list.add(no.chave);
+    }
+    
+         
+    }
+
 
 }
+
+    

@@ -5,6 +5,10 @@
  */
 package arvoredigital;
 
+import java.util.ArrayList;
+import java.util.*;   
+
+
 /**
  *
  * @author Jeandro
@@ -19,17 +23,32 @@ public class ArvoreDigital {
         
         NoTrie raiz =  new NoTrie();
         Tries tries = new Tries();
+        List list = new ArrayList();
         
-        raiz = tries.inserirChave("casa",0 , raiz,"$");
-        raiz = tries.inserirChave("aluno", 0, raiz,"$");
-        raiz = tries.inserirChave("camisa", 0, raiz,"$");
+       //list.add(0, tries.inserirChave("casa",0 , raiz));
+        raiz = tries.inserirChave("aluno", 0, raiz);
+        raiz = tries.inserirChave("camisa", 0, raiz);
+        
   
-        tries.imprimir(raiz);
+        for(int i=0 ;i<raiz.chave.length() ;i++){
+            list.add(raiz);
+            
+    }
+        
+        
+  
+        //tries.imprimir(raiz);
+        System.out.println(list.toString());
+        
+        
         //BuscaDigital bd = new BuscaDigital();
         //bd.percorrer("Casa", raiz);
                 
                 
         
     }
+    
+    
+    
     
 }
